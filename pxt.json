@@ -8,7 +8,8 @@
         "main.ts",
         "README.md",
         "assets.json",
-        "gameEvents.ts"
+        "gameEvents.ts",
+        "spriteEvents.ts"
     ],
     "testFiles": [
         "test.ts"
