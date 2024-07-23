@@ -10,8 +10,9 @@ namespace game {
     //% blockNamespace="game"
     //% group="Gameplay"
     //% help=game/on-update-interval weight=98 afterOnStart=true
-    //% blockId=onUpdateRandomInterval block="update randomly between %lower=timePicker ms and %upper=timePicker ms || start immediately %startImmediately=toggleOnOff"
+    //% blockId=onUpdateRandomInterval block="update randomly between %lower=timePicker ms and %upper=timePicker ms || start immediately $startImmediately"
     //% startImmediately.defl=true
+    //% startImmediately.shadow="toggleOnOff"
     //% blockAllowMultiple=1
     export function onUpdateRandomInterval(lower: number, upper: number, handler: () => void, startImmediately: boolean = true) {
         function repeated(lower: number, upper: number, handler: () => void) {
