@@ -10,7 +10,8 @@
         "README.md",
         "assets.json",
         "gameEvents.ts",
-        "spriteEvents.ts"
+        "spriteEvents.ts",
+        "LoopsExtended.ts"
     ],
     "testFiles": [
         "test.ts"
