@@ -9,25 +9,40 @@ namespace game {
     */
     //% blockNamespace="game"
     //% group="Gameplay"
-    //% help=game/on-update-interval weight=98 afterOnStart=true
     //% blockId=onUpdateRandomInterval block="update randomly between %lower=timePicker ms and %upper=timePicker ms || start immediately $startImmediately"
     //% startImmediately.defl=true
     //% startImmediately.shadow="toggleOnOff"
     //% blockAllowMultiple=1
     export function onUpdateRandomInterval(lower: number, upper: number, startImmediately: boolean = true, handler: () => void) {
         function repeated(lower: number, upper: number, handler: () => void) {
-            handler()
+            handler();
             setTimeout(() => {
-                repeated(lower, upper, handler)
-            }, randint(lower, upper))
+                repeated(lower, upper, handler);
+            }, randint(lower, upper));
         }
         if (startImmediately) {
-            repeated(lower, upper, handler)
+            repeated(lower, upper, handler);
         }
         else {
             setTimeout(() => {
-                repeated(lower, upper, handler)
-            }, randint(lower, upper))
+                repeated(lower, upper, handler);
+            }, randint(lower, upper));
         }
+    }
+
+    /**
+     * Runs an onupdate loop in a separate thread allowing for pausing
+    */
+    //% blockNamespace="game"
+    //% group="Gameplay"
+    //% blockId=separateOnUpdate 
+    //% block="on separate game update"
+    //% blockAllowMultiple=1
+    export function separateOnUpdate(handler: () => void) {
+        control.runInBackground( () => {
+            game.onUpdate( () => {
+                handler
+            })
+        })
     }
 }
