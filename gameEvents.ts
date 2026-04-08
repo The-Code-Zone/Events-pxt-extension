@@ -14,10 +14,7 @@ namespace game {
     //% startImmediately.shadow="toggleOnOff"
     //% blockAllowMultiple=1
     export function onUpdateRandomInterval(lower: number, upper: number, startImmediately: boolean = true, handler: () => void) {
-        let isOver = false;
-        game.onGameOver( () => { isOver = true });
-        let repeated = (lower: number, upper: number, handler: () => void) => {
-            if (isOver){ return };
+        function repeated(lower: number, upper: number, handler: () => void) {
             handler();
             setTimeout(() => {
                 repeated(lower, upper, handler);
