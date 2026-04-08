@@ -16,7 +16,7 @@ namespace game {
     export function onUpdateRandomInterval(lower: number, upper: number, startImmediately: boolean = true, handler: () => void) {
         let isOver = false;
         game.onGameOver( () => { isOver = true });
-        function repeated(lower: number, upper: number, handler: () => void) {            
+        let repeated = (lower: number, upper: number, handler: () => void) => {
             if (isOver){ return };
             handler();
             setTimeout(() => {
