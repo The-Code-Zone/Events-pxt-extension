@@ -7,12 +7,17 @@ namespace game {
      * @param handler the code to run every random interval
      * @param startImmediately whether the attached code should run as soon as this function is called
     */
-    //% blockId=onUpdateRandomInterval block="update randomly between %lower=timePicker ms and %upper=timePicker ms $handler || start immediately $startImmediately"
-    //% startImmediately.defl=true
+    
+    //% block="run every $lower to $upper ms start immediately $startImmediately"
+    //% lower.defl=500
+    //% upper.defl=2000
     //% startImmediately.shadow="toggleOnOff"
-    //% handlerStatement=handler
+    //% startImmediately.defl=1
     //% blockAllowMultiple=1
-    export function onUpdateRandomInterval(lower: number, upper: number, handler: () => void, startImmediately: boolean = true) {
+    //% inlineInputMode=inline
+    //% group="Timers"
+    //% weight=80
+    export function onUpdateRandomInterval(lower: number, upper: number, startImmediately: boolean = true, handler: () => void) {
         function repeated(lower: number, upper: number, handler: () => void) {
             handler();
             setTimeout(() => {
